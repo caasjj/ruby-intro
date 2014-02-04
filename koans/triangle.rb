@@ -15,6 +15,23 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if (a==0 || b==0 || c == 0)
+    raise TriangleError, "no side can be zero"
+  end
+  if (a<0 || b<0 || c<0)
+    raise TriangleError, "negative side ... really?"
+  end
+  if (a+b<=c  || a+c <= b)
+    raise TriangleError, "not a triangle"
+  end
+  if (a==b) && (a==c) && (b==c)
+    return :equilateral
+  else 
+    if (a != b) && (a != c) && (b != c)
+      return :scalene
+    end
+  end
+  :isosceles
 end
 
 # Error class used in part 2.  No need to change this code.
